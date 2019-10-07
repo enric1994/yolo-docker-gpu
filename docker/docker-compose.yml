@@ -1,0 +1,19 @@
+version: '2.3'
+
+services:
+
+  yolo:
+    image: yolo
+    container_name: yolo
+    working_dir: /yolo
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - ../:/yolo
+
+    runtime: nvidia
+    command: tail /dev/null -f
